@@ -329,7 +329,7 @@ std::vector<uint8_t> Model::loadImage(const std::filesystem::path& filepath,
                                       glm::vec2& resolution)
 {
     int x, y, c;
-    unsigned char* image = stbi_load(filepath.c_str(), &x, &y, &c, 3);
+    unsigned char* image = stbi_load(filepath.generic_string().c_str(), &x, &y, &c, 3);
 
     if (!image) {
         spdlog::error("[Model] Failed to load image " + filepath.string());
